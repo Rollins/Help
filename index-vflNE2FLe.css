@@ -1,0 +1,12 @@
+#page-content .help-index .greeting{text-align:center}#page-content .help-index .greeting h3{margin-bottom:48px;font-weight:400;color:#7b8994}#page-content .help-index .keywords{margin-bottom:48px}#page-content .help-index .keywords ul.keywords{
+	list-style-type: none;
+	padding-top: 35px;
+	padding-right: 35px;
+	padding-left: 35px;
+	padding-bottom: 35px;
+	text-align: center;
+	margin: 0
+}#page-content .help-index .keywords ul.keywords li.tile{display:inline-block;margin-bottom:24px;width:232px;vertical-align:top}#page-content .help-index .keywords ul.keywords li.tile+li.tile{margin-left:24px}#page-content .help-index .keywords a{box-sizing:border-box;border-radius:5px;border:1px solid #ddd;display:block;position:relative;height:150px;padding:15px;font-size:13px}#page-content .help-index .keywords a .keyword-label{position:absolute;bottom:24px;left:24px;right:24px;text-align:center;color:#3d464d}#page-content .help-index .keywords a:hover,#page-content .help-index .keywords a:focus{border:1px solid #7b8994}#page-content .help-index .keywords a:hover .keyword-label,#page-content .help-index .keywords a:focus .keyword-label{
+	color: #3d464d;
+	text-decoration: underline;
+}#page-content .help-index .top-articles:after{display:block;height:0;content:' ';clear:both}#page-content .help-index .top-articles h2{margin-bottom:24px;font-size:20px;line-height:1.5}#page-content .help-index .top-articles ul{list-style-type:none;padding:0;margin:0;font-size:16px;line-height:16px;float:left}#page-content .help-index .top-articles ul.even-list{margin-right:36px}#page-content .help-index .top-articles li{width:481px;margin-bottom:24px;line-height:36px;vertical-align:top}

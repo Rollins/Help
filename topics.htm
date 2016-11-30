@@ -1,0 +1,512 @@
+<html><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing Help</title>
+<!--?xml version="1.0" encoding="utf-8"?-->
+<style type="text/css">
+@import url("css/base-admin-3.css");
+@import url("css/font-awesome.min.css");
+</style>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<style type="text/css">
+</style>
+<link href="page-vflzfYSfI.css" rel="stylesheet" type="text/css">
+<link href="css/main-vflaPAd44.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style type="text/css">
+body {
+	background-image: url(none);
+}
+</style>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body>
+<iframe frameborder="0" scrolling="no" width="100%" height="80px" src="header.htm" name="framehead" id="framehead">
+&lt;p&gt;iframes are not supported by your browser.&lt;/p&gt;
+</iframe>
+
+<br>
+
+
+<a href="header.htm" target="framehead"></a><br>
+
+<div class="topichero">
+  <div class="title-text">
+              <div class="HomeHeroSection">
+                    <div class="centered-text">
+                        <div>
+<h1> <p align="left" style="margin-left:40px;">Using VersionOne</p></h1>                          
+<!-- CSS styles for standard search box -->
+	<!-- HTML for SEARCH BAR -->	</div>
+</div>
+</div>
+  </div>
+</div>
+<div align="left">
+<div class="body">
+  <p align="left" style="margin-left:40px;">Rollins Marketing uses VersionOne to manage the software development process. This tool tracks requests, tasks, and defects against the sprint cycle. It is important that all contributors to Marketing software projects plan, track, and update their projects in this central tool.
+</p>
+  <p align="left" style="margin-left:40px;"><strong>In this article:</strong></p>
+  <ul>
+    <p><a href="#lpage">Accessing VersionOne</a></p>
+  <p><a href="#lpage">Tracking Progress in VersionOne</a></p>
+    <p><a href="#leaddata">Adding User Stories</a></p><a href="#leaddata">
+    </a><p><a href="#leaddata"></a><a href="#v1access">Adding Tasks</a></p><a href="#v1access">
+    </a><p><a href="#v1access"></a><a href="#moreinfoagile">Using the Conversations Feature</a></p><a href="#moreinfoagile">
+    </a><p><a href="#moreinfoagile"></a><a href="#deployitnl">Business Owner Approval</a></p><a href="#deployitnl">
+    </a><p><a href="#deployitnl"></a><a href="#sitedown">Read More About VersionOne</a></p>
+    <p><a href="#deployitnl"></a><a href="#sitedown">Related Topics</a></p>
+    <a href="#sitedown">
+  </a></ul>
+</div>
+<div class="body">
+  <p>&nbsp;
+	</p>
+<p>
+	<img border="0" src="default.asp?pg=pgDownload&amp;pgType=pgWikiAttachment&amp;ixAttachment=19046&amp;sFileName=Orkin.com%20Liminal%20Process.jpg" title="" /></p>
+<p>
+	The Liminal Process contains two workflows. The first is the customers calling and starting the Lead/Sold/Start sales cycle. The second occurs once daily and processes data recorded during the sales cycle.</p>
+<p>
+	<strong>Import AT calls into MDB</strong> - The daily process begins by importing calls related to AvidTrak sessions into the <strong>Marketing Database</strong> (<strong>MDB</strong>). To determine which calls are associated with AvidTrak, each number in the AvidTrak replacement bank is associated to a unique Marketing Campaign and VDN. Each Marketing Campaign is associated with a Marketing Program. Marketing Programs have a field indicating its inclusion in AvidTrak. &nbsp;</p>
+<p>
+	<strong>Export calls to AvidTrak</strong> - Once calls are imported into the MDB they are subsequently exported to AvidTrak and marked as exported.</p>
+<p>
+	<strong>Match exported calls in AT session</strong> - AvidTrak matches the start and end times of their recorded sessions to the call connect and terminate times of the exported&nbsp;calls. &nbsp;</p>
+<p>
+	<strong>Match click data in MDB</strong> - Download click data from AvidTrak paid client APIs and match it to calls stored in the <strong>MDB</strong>. At this stage it is important to match only paid clicks because only they need to be exported to Marin. These calls will now have their associated click data stored in the <strong>MDB</strong>.</p>
+<p>
+	<strong>ODS generate conversion file</strong> - Using the VDNs associated with leads, ODS matches lead/sold/start data to call VDNs in the <strong>MDB</strong> and generates a conversion file with revenue data. Matching is done on calls for 10 days previous to ensure enough time is given to close the lead/sold/start sales loop.</p>
+<h1>
+	Implementation Approach</h1>
+<p>
+	The implementation assumes that:</p>
+<ul>
+	<li>
+		Marin is in place.</li>
+	<li>
+		A &quot;closure feed&quot; has been established to the bid platform for&nbsp;<strong>web&nbsp;</strong>leads, sales, and starts.</li>
+	<li>
+		AvidTrak Licensed Model</li>
+</ul>
+<p>
+	The goal is to use AvidTrak to improve the closure feed to include phone sales and starts. In order to tie calls to lead/sold/start information stored in ODS,&nbsp;<strong>call data from the call-tracking solution must be tied to a Case ID in Edge</strong>&nbsp;(<a border="0" class="fb_attachment" href="default.asp?pg=pgDownload&amp;pgType=pgWikiAttachment&amp;ixAttachment=12317&amp;sFileName=AvidTrak%20-%20Data%20Flow.vsd" rel="nofollow noopener noreferrer" title="">view process overview diagram</a>).</p>
+<h2>
+	Tying&nbsp;a call to a Case ID</h2>
+<p>
+	AvidTrack&nbsp;provides, via the&nbsp;<a border="0" class="fb_attachment" href="default.asp?pg=pgDownload&amp;pgType=pgWikiAttachment&amp;ixAttachment=12316&amp;sFileName=Avidtrak%20Webservice%20API.docx" rel="nofollow noopener noreferrer" title="">Avidtrak Webservice API</a></p>
+<ol>
+	<li>
+		The caller&#39;s phone number (via Caller ID:&nbsp;<strong>caller</strong>).</li>
+	<li>
+		The number called (the solution&#39;s provided number:&nbsp;<strong>tracking_number</strong>).</li>
+	<li>
+		Timestamps for when the call was dialed (<strong>call_datetime</strong>) and ended (<strong>duration</strong>).</li>
+	<li>
+		Markeiting Campaign ID (<span style="color: rgb(255, 0, 0)">requires customization by AvidTrak</span>).</li>
+	<li>
+		Mkwid (<span style="color: rgb(255, 0, 0)">requires customization by AvidTrak</span>).</li>
+	<li>
+		Creative ID (<strong>adid</strong>).</li>
+	<li>
+		Bid Keyword Text (<strong>search_keyword</strong>).</li>
+	<li>
+		Match Type (<strong>match_type</strong>).</li>
+</ol>
+<p>
+	A Call Detail Record (CDR) feed from RCSC must be&nbsp;setup&nbsp;to contain the following information:</p>
+<ol>
+	<li>
+		The caller&#39;s phone number (via Caller ID).</li>
+	<li>
+		The number of the line dialed.</li>
+	<li>
+		Time-stamps for when the call was received and answered. Preferably in UTC.</li>
+	<li>
+		The Case ID associated with the call.</li>
+</ol>
+<p>
+	The CDR feed will be loaded to AvidTrak which will match each call to keyword, creative, and other fields tracked by AvidTrak. This data will be loaded from AvidTrak to RollinsIntegration, and ultimately back into ODS where it can be linked to case status (lead, sold, start) and the&nbsp;<strong>revenue file</strong>&nbsp;can contain phone data.</p>
+<h2>
+	Closing the Loop</h2>
+<p>
+	Once data is available in ODS, we must &quot;close the loop&quot; within Marin. All data will be contained with ODS and therefore need to be&nbsp;<strong>exported and uploaded&nbsp;in a format specified by Marin</strong>&nbsp;as part of an automated process.</p>
+<p>
+	At a minimum, the export must contain:</p>
+<ul>
+	<li>
+		A unique identifier recognizable by Marin.</li>
+	<li>
+		The call outcome (lead, sold, started).</li>
+	<li>
+		Any additional data required by Marin.</li>
+</ul>
+<p>
+	Additional data should be included if at all possible:</p>
+<ul>
+	<li>
+		Contract value (or better yet, actual revenue / lifetime value -- currently unavailable within ODS).</li>
+	<li>
+		Call time.</li>
+	<li>
+		Call duration.</li>
+</ul>
+<p>
+	<strong>At this point, fully automated bid optimization based on&nbsp;<em>estimated</em>&nbsp;profit or revenue should be possible.</strong>​ Should actual&nbsp;revenue&nbsp;numbers become available in ODS then optimization can be done based on&nbsp;<em>actual</em>&nbsp;revenue.</p>
+<h2>
+	Dealing with Sale and Start Latency</h2>
+<p>
+	<em>Aggregate</em>&nbsp;data will be uploaded to Marin for the previous day and include the number of leads, sales, and starts that&nbsp;occurred&nbsp;<em>on that day</em>. Sale and start data will be based on the date the sale or start&nbsp;occurred&nbsp;and not the date that the lead was generated so latency is not expected to be an issue.</p>
+<h1>
+	AvidTrak Account Structure and Reporting Implications</h1>
+<p>
+	ODS-sourced reporting presently relies on the relationship between&nbsp;<strong>Marketing Campaign ID</strong>&nbsp;and&nbsp;<strong>VDN</strong>. Within ODS, a phone call is associated with a Marketing Category (which belongs to a Sub-Program, which belongs to a Program) by associating it with a Marketing Campaign ID in the RollinsIntegration.MarketingCampaigns table which maintains the campaign/category relationship.</p>
+<p>
+	A key risk inherent with AvidTrak (or any such solution) is that the&nbsp;<strong>relationship between the Marketing Campaign and its associated phone number and VDN data cannot be maintained</strong>. Therefore, to ensure the relationship between a call and it&#39;s place within Marketing&#39;s reporting structure are maintained, AvidTrak must be split into separate accounts; one per Marketing Category. This ensures that Program, Sub-Program, and Category will be maintained without requiring significant rework of the underlying structure of ODS.</p>
+<p>
+	The implications of creating a one-to-one relationship between AvidTrak Account and Marketing Category are:</p>
+<ul>
+	<li>
+		Aggregate data at the Program, Sub-Program, and Category levels will be consistent for year-over-year comparisons.</li>
+	<li>
+		Call-level data&nbsp;<em>by Marketing Campaign</em>&nbsp;will no longer be accurate.</li>
+</ul>
+<h1>
+	Rosetta Stone</h1>
+<p>
+	Rollins, Google, Marin, and AvidTrak all use different terminology and naming conventions. Use the following table to translate.</p>
+<table class="Basic">
+	<tbody>
+		<tr>
+			<th>
+				<a class="vb" href="default.asp?W634" rel="nofollow noopener noreferrer">Rollins Term</a></th>
+			<th>
+				<a href="http://support.google.com/adwords/answer/2375447?hl=en" rel="nofollow noopener noreferrer" target="_blank">Google Term</a></th>
+			<th>
+				<a href="http://advertise.bingads.microsoft.com/en-us/product-help/bingads/topic?market=en-US&amp;project=adCenter_live_std&amp;querytype=topic&amp;query=MOONSHOT_CONC_QueryStrings.htm" rel="nofollow noopener noreferrer" target="_blank">Bing Term</a></th>
+			<th>
+				Marin Term</th>
+			<th>
+				<a class="undefined" href="https://rollins.fogbugz.com/default.asp?pg=pgDownload&amp;pgType=pgWikiAttachment&amp;ixAttachment=11359&amp;sFileName=Avidtrak%%.docx" rel="nofollow noopener noreferrer">AvidTrak Term</a></th>
+			<th>
+				Translation Notes</th>
+		</tr>
+		<tr>
+			<td>
+				Marin Keyword ID</td>
+			<td>
+				<em>NA</em></td>
+			<td>
+				<em>NA</em></td>
+			<td>
+				mkwid or [uniq_id]</td>
+			<td>
+				<span style="color: rgb(255, 0, 0)">???</span></td>
+			<td>
+				A unique identifier generated by Marin.</td>
+		</tr>
+		<tr>
+			<td>
+				Creative ID</td>
+			<td>
+				{creative}</td>
+			<td>
+				{adid}</td>
+			<td>
+				prcid or [creative_id]</td>
+			<td>
+				adid</td>
+			<td>
+				A unique identified generated by the advertising platform (e.g. AdWords)</td>
+		</tr>
+		<tr>
+			<td>
+				Bid Keyword Text</td>
+			<td>
+				{keyword}</td>
+			<td>
+				{keyword}</td>
+			<td>
+				pkw or [keyword_text]</td>
+			<td>
+				keyword</td>
+			<td>
+				The keyword that was&nbsp;<em>bid upon</em>. This is&nbsp;<strong>not</strong>&nbsp;necessarily the keyword that was queried by the user.</td>
+		</tr>
+		<tr>
+			<td>
+				Match Type</td>
+			<td>
+				{matchtype}</td>
+			<td>
+				{MatchType}</td>
+			<td>
+				pmt or [matchtype]</td>
+			<td>
+				match_type</td>
+			<td>
+				The match type of the bid that was triggered by the search query.<br />
+				&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+<p>&nbsp;
+	</p>
+
+
+<h5>
+	ODS Calls File Export</h5>
+<p>
+	The ODS Calls File Export is a CS V formatted file, sourced from CMS and Edge, generated daily, for import into RollinsIntegration. The file can be found on the network share:&nbsp;<strong>\\rwinfah201\infa_shared\TgtFiles\Prod\AvidTrak </strong>and&nbsp;contains the following fields:</p>
+<table class="Basic" style="font-size: 12; text-align: left">
+	<tbody>
+		<tr>
+			<th width="300">
+				Column Name</th>
+			<th width="532">
+				Description</th>
+		</tr>
+		<tr>
+			<td>
+				CALLING_PTY</td>
+			<td>
+				The ten digit caller ID phone number of the calling party.</td>
+		</tr>
+		<tr>
+			<td>
+				FIRSTVDN</td>
+			<td>
+				The first VDN the call was routed through. This ultimately indicates the number that was dialed.</td>
+		</tr>
+		<tr>
+			<td>
+				CALLID</td>
+			<td>
+				The call identifier assigned by Edge. This is also used as the primary key in the&nbsp;<em>Calls</em> table</td>
+		</tr>
+		<tr>
+			<td>
+				SEGSTART</td>
+			<td>
+				The date and time the call was placed.</td>
+		</tr>
+		<tr>
+			<td>
+				SEGSTOP</td>
+			<td>
+				The date and time the call ended.</td>
+		</tr>
+		<tr>
+			<td>
+				CASEID</td>
+			<td>
+				The Edge Case ID tied to the lead.</td>
+		</tr>
+	</tbody>
+</table><br>
+<h5>
+	Call Detail Record Export</h5>
+<p>
+	The Call Detail Record Export is a CSV formatted file, sourced from RollinsIntegration for import into AvidTrak, that contains the following fields:</p>
+<table class="Basic" style="font-size: 12; text-align: left">
+	<tbody>
+		<tr>
+			<th width="301">
+				Column Name</th>
+			<th width="476">
+				Description</th>
+		</tr>
+		<tr>
+			<td>
+				CallOriginatingNumber</td>
+			<td>
+				The ten digit caller ID phone number of the calling party.</td>
+		</tr>
+		<tr>
+			<td>
+				CallDialedNumber</td>
+			<td>
+				The ten digit number of the dialed line.</td>
+		</tr>
+		<tr>
+			<td>
+				CallConnectUtc</td>
+			<td>
+				The date and time (in UTC) the call was connected.</td>
+		</tr>
+		<tr>
+			<td>
+				CallTerminateUtc</td>
+			<td>
+				The date and time (in UTC) the call was terminated.</td>
+		</tr>
+	</tbody>
+</table>
+<h5>
+	Marin Conversion File Export</h5>
+<p>
+	The Marin Conversion File is a CSV formatted file, sourced from ODS and RollinsIntegration for import into Marin. The web and phone conversion files can be found on the network share: <strong>\\rwinfah201\infa_shared\TgtFiles\Prod\DSBT</strong>&nbsp;and contain the following fields:</p>
+<h3>
+	Combined web and 1phone conversion file format</h3>
+<p>
+	File name example:&nbsp;combined-conv-phone_rollins_orkin_km271vm0l0_20140718.txt</p>
+<table class="Basic" style="font-size: 12; text-align: left">
+	<tbody>
+		<tr>
+			<th>
+				Column Name</th>
+			<th>
+				Description</th>
+		</tr>
+		<tr>
+			<td>
+				Date</td>
+			<td>
+				The date by which all the other fields are aggregated (grouped by).</td>
+		</tr>
+		<tr>
+			<td>
+				Keyword ID</td>
+			<td>
+				The Marin keyword ID.</td>
+		</tr>
+		<tr>
+			<td>
+				Creative ID</td>
+			<td>
+				A value generated by the ad platform that uniquely identifies an ad unit.</td>
+		</tr>
+		<tr>
+			<td>
+				Keyword</td>
+			<td>
+				The bid-upon keyword.</td>
+		</tr>
+		<tr>
+			<td>
+				Match Type</td>
+			<td>
+				The match type of the bid that was triggered by the search query.</td>
+		</tr>
+		<tr>
+			<td>
+				weblead2 Conv</td>
+			<td>&nbsp;
+				</td>
+		</tr>
+		<tr>
+			<td>
+				websold Conv</td>
+			<td>
+				The number of sales made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from web leads.</td>
+		</tr>
+		<tr>
+			<td>
+				webstart Conv</td>
+			<td>
+				The number of starts made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from web leads.</td>
+		</tr>
+		<tr>
+			<td>
+				webstart Rev</td>
+			<td>
+				The revenue, as indicated by the contract value, generated on the specified date for the specified keyword ID, creative ID, keyword, and match type that was generated from web leads.</td>
+		</tr>
+		<tr>
+			<td>
+				phonelead Conv</td>
+			<td>
+				The number of cases associated with the call. Multiple leads for the same call. Please see&nbsp;Linking a Call to a Case ID =&gt; Special and Unusual Cases below.</td>
+		</tr>
+		<tr>
+			<td>
+				phonesold Conv</td>
+			<td>
+				The number of sales made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from phone leads.</td>
+		</tr>
+		<tr>
+			<td>
+				phonestart Conv</td>
+			<td>
+				The number of starts made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from phone leads.</td>
+		</tr>
+		<tr>
+			<td>
+				phonestart Rev</td>
+			<td>
+				The revenue, as indicated by the contract value, generated on the specified date for the specified keyword ID, creative ID, keyword, and match type that was generated from phone leads.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4 id="v1access" style="margin-left:40px; margin-top:300px">How Do I Request Access to VersionOne?</h4>
+<p style="margin-left:40px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<h4 id="moreinfoagile" style="margin-left:40px; margin-top:300px">Where Can I Learn About Agile Methodologies? </h4>
+<p style="margin-left:40px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+<h4 id="deployitnl" style="margin-left:40px; margin-top:300px">How Do I Deploy an International Franchise Site? </h4>
+<p style="margin-left:40px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<h4 id="sitedown" style="margin-left:40px; margin-top:300px">What Should I Do if a Website is Down?</h4>
+<p style="margin-left:40px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<h4 id="userstoryinfo" style="margin-left:40px; margin-top:300px">What Information is Required in a User Story?</h4>
+<p style="margin-left:40px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<h4 id="latestcode" style="margin-left:40px; margin-top:300px">How Can I Ensure I Have the Latest Version of the Code Base? </h4>
+<p style="margin-left:40px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+<h4 id="commitlog" style="margin-left:40px; margin-top:300px">Can I See the Details of Recent Commits in a GitHub Repository?</h4>
+<p style="margin-left:40px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<h4 id="siteimageload" style="margin-left:40px; margin-top:300px">My Website Isn't Loading Images. What Should I Do?</h4>
+<p style="margin-left:40px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<p style="margin-left:40px">&nbsp;</p>
+<h3><a name="_Toc462997428"></a><a name="_Toc463430245"></a><a name="_Toc465082958">Servers</a></h3>
+<p>Several servers hold source code at different stages of the  development and deployment process:</p>
+<ul>
+  <li><strong>DEV.ORKIN.COM</strong> – This server is owned and administered by the  Marketing Technology team. The server is used by the team to develop code  during the development process. Developers view their code in this server  environment and identify any necessary changes. </li>
+  <li><strong>QA.ORKIN.COM</strong> – This server is owned and administered by the  Marketing Technology team. The server is used by the team to review completed  code, to ensure quality and confirm the code is free of defects. <br>
+    Only a Marketing Technology team administrator can push code to this server</li>
+  <li><strong>WWW.ORKIN.COM</strong> – This server is the production environment,  and contains the code that comprises the public-facing content of Orkin.com. The web-based software on this server is the Orkin.com website. Code deployed to this server is  considered complete and released. <br>
+    Only a Marketing Technology team administrator can deploy the website to this  server. </li>
+</ul>
+<div>
+  <p>IMPORTANT:  Deployment to www.orkin.com is performed twice a  month, in sync with the Marketing Technology sprint schedule.</p>
+</div>
+<br clear="all">
+<p><a name="_Toc462997429"></a><a name="_Toc463430246"><strong>&nbsp;</strong></a></p>
+<h2><img width="331" height="257" src="/images/image002_0000.jpg" align="left" hspace="12"><a name="_Toc465082959">GitHub Administration</a> <strong> </strong></h2>
+<p>The Rollins GitHub Organization hosts several teams, such  as:</p>
+<ul>
+  <li>Marketing Technology</li>
+  <li>Continion</li>
+  <li>Jackson-Spalding</li>
+</ul>
+<p style="margin-left:40px">&nbsp;</p>
+</div>
+
+<p align="left" style="margin-left:40px;"><strong>Related Topics:</strong></p>
+<ul>
+  <p><a href="#lpage">About Software Change Management</a></p>
+  <p><a href="#lpage">Applying Agile Methodologies</a></p>
+  <p><a href="#leaddata">Rollins Marketing SDLC</a></p>
+  <a href="#leaddata"> </a>
+  <p><a href="#leaddata"></a><a href="#v1access">Adding Tasks</a></p>
+  <a href="#v1access"> </a>
+  <p><a href="#v1access"></a><a href="#moreinfoagile">Using the Conversations Feature</a></p>
+  <a href="#moreinfoagile"> </a>
+  <p><a href="#moreinfoagile"></a><a href="#deployitnl">Business Owner Approval</a></p>
+  <a href="#deployitnl"> </a>
+  
+  <p><a href="#deployitnl"></a><a href="#sitedown">Related Topics</a></p>
+  <p><a href="#deployitnl"></a><a href="#sitedown">Read More About VersionOne</a></p>
+  <a href="#sitedown"> </a>
+</ul>
+</div><a href="#siteimageload">
+
+<!-- /row -->
+<!-- /row --><!-- /span4 -->    <!-- /span4 -->    <!-- /span6 --><!-- /row -->
+</a>
+
+</body></html>
