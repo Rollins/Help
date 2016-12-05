@@ -189,7 +189,7 @@ Hints:
 
 <body onload="if (document.getElementById('zoom_searchbox')) {document.getElementById('zoom_searchbox').focus();}">
 <h1><p align="left" style="margin-left:40px;">Search Results</h1>
-<p><style type="text/css">
+<p align="left" style="margin-left:40px;"><style type="text/css">
 	#tfheader{
 		background-color:#636363;
 	}
@@ -244,16 +244,17 @@ border: solid 1px #797A7D; border-right:0px;
 </div>
 </div>
   </div>
-  <form method="GET" action="search.html">
-  <input type="text" placeholder="Search Again" class="tftextinput" name="zoom_query" style="
+  <p align="left" style="margin-left:40px;">
+<input type="text" placeholder="Search Again" class="tftextinput" name="zoom_query" style="
     margin-left: 0px;
     width: 231px; margin-bottom:40px">
- 
-	  <input type="submit" value="search" class="tfbutton"></form>
-	  </div></p>
+  <input type="submit" value="search" class="tfbutton">
+  <form  method="GET" action="search.html">
+</form>
+</div></p>
 <!-- This is where the search form and results will appear -->
-<script language="JavaScript">ZoomInitSearch();</script>
-	<script language="JavaScript">ZoomShowResults();</script>
+<p align="left" style="margin-left:40px;"><script language="JavaScript">ZoomInitSearch();</script>
+	<script language="JavaScript">ZoomShowResults();</script></p>
 	
 	<noscript>You must have JavaScript enabled to use this version of the search engine.</noscript>
 </body>
