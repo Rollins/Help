@@ -240,7 +240,7 @@ function RecLinkAddParamToURL(url, paramStr)
 	// add GET parameters to URL depending on
 	// whether there are any existing parameters
 	if (url.indexOf("?") > -1)
-		return url + "&amp;" + paramStr;
+		return url + "&" + paramStr;
 	else
 	{
 		hashPos = url.indexOf("#");
@@ -256,7 +256,7 @@ function AddParamToURL(url, paramStr)
 	// add GET parameters to URL depending on
 	// whether there are any existing parameters
 	if (url.indexOf("?") > -1)
-		return url + "&amp;" + paramStr;
+		return url + "&" + paramStr;
 	else
 		return url + "?" + paramStr;
 }
@@ -280,19 +280,19 @@ function wordcasecmp(word1, word2) {
 }
 
 function htmlspecialchars(query) {
-	query = query.replace(/\&/g, "&#38;");
+	query = query.replace(/\&/g, "&");
 	query = query.replace(/\</g, "&#60;");
-	query = query.replace(/\>/g, "&#62;");
-	query = query.replace(/\"/g, "&#34;");
-	query = query.replace(/\'/g, "&#39;");
+	query = query.replace(/\>/g, ">");
+	query = query.replace(/\"/g, """);
+	query = query.replace(/\'/g, "'");
 	return query;
 }
 
 function QueryEntities(query) {
-	query = query.replace(/\&/g, "&#38;");
+	query = query.replace(/\&/g, "&");
 	query = query.replace(/\</g, "&#60;");
-	query = query.replace(/\>/g, "&#62;");
-	query = query.replace(/\'/g, "&#39;");
+	query = query.replace(/\>/g, ">");
+	query = query.replace(/\'/g, "'");
 	return query;
 }
 
@@ -435,7 +435,7 @@ else
 }
 
 if (SelfURL.indexOf("?") != -1)
-	LinkBackJoinChar = "&amp;";
+	LinkBackJoinChar = "&";
 
 // encode invalid URL characters
 SelfURL = SelfURL.replace(/\</g, "&lt;");
@@ -813,7 +813,7 @@ function ZoomInitSearch()
 				if (from_datetime >= 0 && to_datetime > 0)
 				{
 					UseDateRange = true;
-					dateRangeParams = "&amp;zoom_datefrom=" + htmlspecialchars(date_from) + "&amp;zoom_dateto=" + htmlspecialchars(date_to);
+					dateRangeParams = "&zoom_datefrom=" + htmlspecialchars(date_from) + "&zoom_dateto=" + htmlspecialchars(date_to);
 				}
 			}
 		}	
@@ -1053,7 +1053,7 @@ function ZoomInitSearch()
 		for (fieldnum = 0; fieldnum < NumMetaFields; fieldnum++)
 		{
 			if (meta_query[fieldnum] != "")
-				metaParams = metaParams+"&amp;"+metafields[fieldnum][METAFIELD_NAME]+"="+meta_query[fieldnum];
+				metaParams = metaParams+"&"+metafields[fieldnum][METAFIELD_NAME]+"="+meta_query[fieldnum];
 		}
 	}
 
@@ -1137,7 +1137,7 @@ function ZoomShowCategories()
 					document.write(" selected=\"selected\"");
 				document.writeln(">" + catnames[i] + "</option>");
 			}
-			document.writeln("</select>&nbsp;&nbsp;");
+			document.writeln("</select>  ");
 		}
 		document.writeln("</span>");
 	}
@@ -1238,7 +1238,7 @@ function ZoomShowSearchForm()
 	if (InitSearchCalled == false)
 	{
 		if (IsWarningGiven == false)
-			document.writeln("<div class=\"results\">This is an advanced template option. You must call ZoomInitSearch() before this. Please check documentation for more help.</div>");
+			document.writeln("<div  align="left" style="margin-left:40px;" class=\"results\">This is an advanced template option. You must call ZoomInitSearch() before this. Please check documentation for more help.</div>");
 		IsWarningGiven = true;
 		return;
 	}
@@ -1279,7 +1279,7 @@ function ZoomShowHeading()
 		if (cat[0] == -1)
 		{
 			document.writeln(" " + STR_RESULTS_IN_ALL_CATEGORIES);
-			query_zoom_cats = "&amp;zoom_cat%5B%5D=-1";
+			query_zoom_cats = "&zoom_cat%5B%5D=-1";
 		}
 		else
 		{
@@ -1289,7 +1289,7 @@ function ZoomShowHeading()
 				if (catit > 0)
 					document.write(", ");
 				document.write("\"" + catnames[cat[catit]] + "\"");
-				query_zoom_cats += "&amp;zoom_cat%5B%5D="+cat[catit];
+				query_zoom_cats += "&zoom_cat%5B%5D="+cat[catit];
 			}
 		}
 	}
@@ -1369,7 +1369,7 @@ function ZoomShowResults()
 
 		document.writeln("<div class=\"result_title\">");
 		if (DisplayNumber == 1)
-			document.writeln("<b>" + (arrayline+1) + ".</b>&nbsp;");
+			document.writeln("<b>" + (arrayline+1) + ".</b> ");
 
 		if (DisplayTitle == 1)
 		{
@@ -1464,7 +1464,7 @@ function ZoomShowResults()
 
 		if (DisplayScore == 1) {
 			if (info_str.length > 0)
-				info_str += "&nbsp; - &nbsp;";
+				info_str += "  -  ";
 			info_str += STR_RESULT_SCORE + " " + score;
 		}
 
@@ -1475,7 +1475,7 @@ function ZoomShowResults()
 			{
 				datetime = new Date(pgdate*1000);
 				if (info_str.length > 0)
-					info_str += "&nbsp; - &nbsp;";
+					info_str += "  -  ";
 				info_str += datetime.getDate() + " " + months[datetime.getMonth()] + " " + datetime.getFullYear();
 			}
 		}
@@ -1488,13 +1488,13 @@ function ZoomShowResults()
 				filesize = 1;
 
 			if (info_str.length > 0)
-				info_str += "&nbsp; - &nbsp;";
+				info_str += "  -  ";
 			info_str += filesize + "k";
 		}
 
 		if (DisplayURL == 1) {
 			if (info_str.length > 0)
-				info_str += "&nbsp; - &nbsp;";
+				info_str += "  -  ";
 			if (TruncateShowURL > 0)
 			{
 				if (pgurl.length > TruncateShowURL)
@@ -1795,7 +1795,7 @@ function ZoomShowPageNumbers()
 
 		document.writeln("<div class=\"result_pages\">" + STR_RESULT_PAGES + " ");
 		if (page > 1)
-			document.writeln("<a href=\"" + SelfURL + LinkBackJoinChar + "zoom_query=" + queryForURL + metaParams + "&amp;zoom_page=" + (page-1) + "&amp;zoom_per_page=" + per_page + query_zoom_cats + dateRangeParams + "&amp;zoom_and=" + andq + "&amp;zoom_sort=" + sort + "\">&lt;&lt; " + STR_RESULT_PAGES_PREVIOUS + "</a> ");
+			document.writeln("<a href=\"" + SelfURL + LinkBackJoinChar + "zoom_query=" + queryForURL + metaParams + "&amp;zoom_page=" + (page-1) + "&amp;zoom_per_page=" + per_page + query_zoom_cats + dateRangeParams + "&amp;zoom_and=" + andq + "&amp;zoom_sort=" + sort + "\"><< " + STR_RESULT_PAGES_PREVIOUS + "</a> ");
 		for (i = start_range; i <= end_range; i++)
 		{
 			if (i == page)
@@ -1804,7 +1804,7 @@ function ZoomShowPageNumbers()
 				document.writeln("<a href=\"" + SelfURL + LinkBackJoinChar + "zoom_query=" + queryForURL + metaParams + "&amp;zoom_page=" + i + "&amp;zoom_per_page=" + per_page + query_zoom_cats + dateRangeParams + "&amp;zoom_and=" + andq + "&amp;zoom_sort=" + sort + "\">" + i + "</a> ");
 		}
 		if (page != num_pages)
-			document.writeln("<a href=\"" + SelfURL + LinkBackJoinChar + "zoom_query=" + queryForURL + metaParams + "&amp;zoom_page=" + (page+1) + "&amp;zoom_per_page=" + per_page + query_zoom_cats + dateRangeParams + "&amp;zoom_and=" + andq + "&amp;zoom_sort=" + sort + "\">" + STR_RESULT_PAGES_NEXT + " &gt;&gt;</a> ");
+			document.writeln("<a href=\"" + SelfURL + LinkBackJoinChar + "zoom_query=" + queryForURL + metaParams + "&amp;zoom_page=" + (page+1) + "&amp;zoom_per_page=" + per_page + query_zoom_cats + dateRangeParams + "&amp;zoom_and=" + andq + "&amp;zoom_sort=" + sort + "\">" + STR_RESULT_PAGES_NEXT + " >></a> ");
 		document.writeln("</div>");
 	}
 	if (ZoomInfo == 1)
