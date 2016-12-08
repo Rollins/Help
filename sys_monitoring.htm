@@ -28,8 +28,8 @@ body {
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body style="width:70%">
-<iframe frameborder="0" scrolling="no" align="left" width="70%" height="80px" src="header.htm" name="framehead" id="framehead">
+</head><body style="width:100%">
+<iframe frameborder="0" scrolling="no" align="left" width="100%" height="80px" src="header.htm" name="framehead" id="framehead">
 &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;p&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;iframes are not supported by your browser.&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;/p&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt;
 </iframe>
 
@@ -42,12 +42,82 @@ body {
     <span>Back to Help</span></a></p>
 </div>
 <div class="topichero">
+ <style type='text/css'>
+
+/***** Side Content *****/
+
+#sidecontent
+{
+  margin-right:10%;
+	margin-left: 30px;
+  padding:20px 20px 20px 20px;
+  float:right;
+	border: 2px solid #CC092f;
+    border-radius: 5px;
+}
+
+#sidecontent ul
+{
+  color:#333;
+  list-style:none;
+  padding:0 0 10 0;
+  margin:0;
+  background:inherit;
+}
+
+#sidecontent li
+{
+  padding: 0.1ex 0 5px 0;
+}
+
+#sidecontent li a
+{
+  color:#000;
+  text-decoration:none;
+  font-size:1em;
+  display:block;
+  padding:8px 20px;
+  background:inherit;
+}
+
+#sidecontent li a:hover
+{
+  background:#CC092F;
+  color:white;
+}
+
+#sidecontent h4
+{
+  font-size:1em;
+  font-weight:bold;
+  margin:0;
+	text-align:center
+}
+
+  </style>
+ <div id="sidecontent">
+   <h4><br>
+     Jump To:</h4>
+   <br>
+   <ul>
+     <li><a href="FAQ.htm">FAQ</a></li>
+     <li><a href="downloads.htm">PDFs</a></li>
+     <li><a href="VersionOne.htm">VersionOne</a></li>
+     <li><a href="Sprint_Deploy.htm">Sprint Cycle</a></li>
+     <li><a href="GitHub.htm">GitHub</a></li>
+     <li><a href="Orkin.htm">Orkin.com</a></li>
+     <li><a href="international.htm">International Franchise</a></li>
+     <li><a href="risk.htm">Troubleshooting</a></li>
+     <li><a href="mcc.htm">Marketing Command Center</a></li>
+     <li><a href="Glossaries.htm">Glossaries</a></li>
+   </ul>
+ </div>
   <div class="title-text">
-  <div class="HomeHeroSection">
+    <div class="HomeHeroSection">
   <div class="centered-text">
           <div>
 <h1> <p align="left" style="margin-left:40px;">System Monitoring</p></h1>
-<p align="left" style="margin-left:40px;">Language about system monitoring </p>
+<p align="left" style="margin-left:40px;">Use this topic to learn about the tools and processes used to monitor  the up-time, down-time, and response time of our websites and systems.</p>
 
 <!-- CSS styles for standard search box -->
 	<!-- HTML for SEARCH BAR -->	</div>
@@ -59,70 +129,36 @@ body {
 <div class="body">
   <p align="left" style="margin-left:40px;"><strong>In this article:</strong></p>
   <ul>
-  <p><a href="#v1access">Lorem</a></p>
-  <p><a href="#v1track">Lorem</a></p>
-    <p><a href="#v1story">Lorem</a></p>
-    <p><a href="#v1task">Lorem</a></p>
-    <p><a href="#v1convo">Lorem</a></p>
-    <p><a href="#v1bo">Lorem</a></p>
-    <p><a href="#v1moreinfo">Read More </a></p>
-    <p><a href="#v1related">Related Topics</a></p>
-    
+  <p><a href="#pingdom">Pingdom</a></p>
+  <p><a href="#googlean">Google Analytics</a></p>
+    <p><a href="#health">Health Monitoring</a></p>
+    <p><a href="#sysmonrisk">Troubleshooting</a></p>
+        <p><a href="#sysmonrelated">Related Topics</a></p>
+
    </ul>
 </div>
 <div class="body;" ma="">
- <br> <br><p style="margin-left: 40px; width=70%">	
-	This article explains what you need to know about System Monitoring! Website up-time, down-time, response-time, we monitor it! How healthy are our websites? How do we know the&nbsp;<a class="uvb" href="default.asp?W873" rel="nofollow noopener noreferrer">Lead Queue</a>&nbsp;is processing leads? How can the&nbsp;<a class="vb" href="default.asp?W651" rel="nofollow noopener noreferrer">TaskRunner</a>&nbsp;help? This article tells you.
-</p>
- <h4 id="v1access" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	
-   Pingdom</h4>
+ <br>
+<h4 id="pingdom" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	
+  Pingdom</h4>
+<p style="margin-left: 40px;">Rollins websites are monitored&nbsp;by&nbsp;<a href="http://www.pingdom.com" rel="nofollow noopener noreferrer" target="_blank">Pingdom</a>. The service pings each site every five minutes. If the site fails to respond, Pingdom notifies the Marketing Technology team. Some sites are also monitored for specific page strings, such as the page title. If those strings cannot be located, Pingdom notifies the team.</p>
+<p style="margin-left: 40px;">Pingdom also provides performance reports on these websites.</p><br>
+<h4 id="googlean" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	Google Analytics</h4>
 <p style="margin-left: 40px;">
-	<strong>Every&nbsp;</strong>website or web service,&nbsp;available publicly, should be monitored&nbsp;by&nbsp;<a href="http://www.pingdom.com" rel="nofollow noopener noreferrer" target="_blank">Pingdom</a>. The service pings each site every 5 minutes. First, if a site Pingdom is monitoring doesn't respond, it will let us know via email. An advanced option is also provided, which checks for a specific string on a page, usually the title. If that string is missing, an email will be sent indicating the site is down. We have set most sites up with this advanced check.&nbsp;<a href="http://www.pingdom.com" rel="nofollow noopener noreferrer" target="_blank">Pingdom&nbsp;</a>also provides downtime, up-time and performance reports.</p>
+	Google Analytics monitors site traffic. Alerts are in place that notify the Marketing team if site traffic falls below a specified threshold. Google Analytics also provides a response time report.</p>
+<p style="margin-left: 40px;">&nbsp;</p>
+<h4 id="healthmonitor" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	Website Health Monitoring</h4>
 <p style="margin-left: 40px;">
-	To view a list of the websites we monitor with&nbsp;<a href="http://www.pingdom.com" rel="nofollow noopener noreferrer" target="_blank">Pingdom&nbsp;</a>please log in using the credentials from the&nbsp;<a class="vb" href="default.asp?W4" rel="nofollow noopener noreferrer">credentials wiki</a>.</p><br>
-<h4 id="v1access" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	Google Analytics</h4>
-<p style="margin-left: 40px;">
-	We use&nbsp;<a href="http://www.google.com/analytics/" rel="nofollow noopener noreferrer" target="_blank">GA</a>&nbsp;for system monitoring as well. For example we monitor site traffic and have created alerts if the traffic dips a below a specified level unexpectedly. We also have implemented response-time reporting via GA. In order to get a better understand of how we utilize Google Analytics to monitor our websites I have created a&nbsp;<a href="default.asp?8668" onmouseover="b1(8668, this);" rel="nofollow noopener noreferrer">Google Analytics Monitoring Audit</a>&nbsp;case.</p>
-<h4 id="v1access" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	Website Health Monitoring</h4>
-<p style="margin-left: 40px;">
-	Health monitoring refers to a method of reporting errors encountered by users. We use a few different types of Health monitoring tools to monitor our&nbsp;websites and services.</p>
-<p style="margin-left: 40px;">
-	Most ASP.Net websites use&nbsp;<a href="http://msdn.microsoft.com/en-us/library/bb398933.aspx" rel="nofollow noopener noreferrer" target="_blank">ASP.Net Health Monitoring</a>. The exception is the&nbsp;<a class="uvb" href="default.asp?W746" rel="nofollow noopener noreferrer">Waltham Services</a>&nbsp;which uses an ASP.Net plugin called&nbsp;<a href="http://code.google.com/p/elmah/" rel="nofollow noopener noreferrer" target="_blank">Elmah&nbsp;</a>to monitor which has added benefits. It was added to Waltham Services as an experiment. Furthermore unbranded sites using&nbsp;<a href="http://wordpress.org/" rel="nofollow noopener noreferrer" target="_blank">Wordpress</a>&nbsp;use a plugin for this functionality.</p>
-<p style="margin-left: 40px;">
-	Currently Health Monitoring errors are sent to different people for different websites. We should perform a&nbsp;<a href="default.asp?8666" onmouseover="b1(8666, this);" rel="nofollow noopener noreferrer">health monitoring audit</a>&nbsp;to organize the settings and alert recipients for the different monitoring tools.</p>
-<h4 id="v1access" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	Task Runner Monitoring</h4>
-<p style="margin-left: 40px;">
-	The Rollins Task Runner can be configured to monitor many different systems within the Rollins branded infrastructure. For example, the currently configured&nbsp;<a class="wikiNew" href="default.asp?W1022" rel="nofollow noopener noreferrer">LeadQueueReportStuckLeadsTask</a>&nbsp;and&nbsp;<a class="wikiNew" href="default.asp?W1023" rel="nofollow noopener noreferrer">LeadQueueReportBadCodesTask</a>&nbsp;monitor for leads which RCSC rejects and leads with invalid web codes, respectively. If the conditions for which they monitor are met, an email alert is sent out. Going forward, we will perform a&nbsp;<a href="default.asp?8667" onmouseover="b1(8667, this);" rel="nofollow noopener noreferrer">Task Runner Audit</a>&nbsp;which will implement new alerts, and organize current alerts.&nbsp;</p>
-<p style="margin-left: 40px;">
-	Furthermore, the&nbsp;<a class="vb" href="default.asp?W651" rel="nofollow noopener noreferrer">TaskRunner</a>&nbsp;outputs all of its debug information into the trace.txt file located in the same directory as the Windows service. When reviewing alert data, this trace file can be used to gather more information on a specific error. The service is always running on the application server (69.20.10.148) and is located in&nbsp;C:\Program Files\Rollins\Apps\TaskRunner\WindowsService.</p>
-<p style="margin-left: 40px;">
-	Occasionally, when deploying a new version of the TaskRunner, or&nbsp;<a class="uvb" href="default.asp?W873" rel="nofollow noopener noreferrer">emptying the Lead Queue</a>&nbsp;the trace.txt file can provide extra information for trouble-shooting. Also, when deploying a new version of the&nbsp;<a class="vb" href="default.asp?W651" rel="nofollow noopener noreferrer">TaskRunner</a>, you will need to stop the service. This is a good time, to delete the current trace.txt, because this file can get large. It isn't necessary to backup the trace.txt file, because the processes run on scheduled intervals and any existing issues will reappear after restarting, if they aren't fixed.</p>
-<h4 id="v1access" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	External Monitoring Tools</h4>
-<p style="margin-left: 40px;">
-	Occasionally, we come across some really helpful monitoring tools, which aren't necessarily part of our infrustructure's daily health. Here is a list and&nbsp;description&nbsp;of tools which provide monitoring.</p>
-<h4 id="v1access" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	
-	What's my DNS?</h4>
-<p style="margin-left: 40px;">
-	<a href="http://www.whatsmydns.net/#A/www.orkin.com" rel="nofollow noopener noreferrer" target="_blank">What's my DNS</a>&nbsp;is a service that pings your site from locations around the world and returns the IP address from those pings. This is very helpful when adding or updating site DNS entries. For example, if we changed the DNS of an unbranded site from one host to another, we could use this service to determine when the updated DNS entry has&nbsp;propagated&nbsp;around the world. Also, note that if the DNS entry is shown as propagated, and internally (ping from local machine) the DNS isn't resolving properly, this is most likely an internal DNS issue and should be reported to&nbsp;<a href="mailto:mcurtis@rollins.com" rel="nofollow noopener noreferrer">Michael Curtis</a>&nbsp;in IT immediately.</p>
-<h4 id="v1access" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	Future Monitoring</h4>
-<p style="margin-left: 40px;">
-	Please include ideas here for future monitoring efforts.</p>
-<h4 id="v1access" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	
-	Content change monitoring</h4>
-<p style="margin-left: 40px;">
-	Every time a change is made to a site, branded or unbranded, alerts should be sent to project stakeholders, indicating the change. This could help catch content mistakes before they are picked up by spiders</p>
-&lt;<h4 id="v1access" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">	
-	PestGen monitoring</h4>
-<p style="margin-left: 40px;">
-	In the future we might consider creating a monitoring service to look at leads generated through&nbsp;<a class="vb" href="default.asp?W990" rel="nofollow noopener noreferrer">PestGen</a>, to make sure the service is in good health.</p>
-
+	The <a href="https://msdn.microsoft.com/en-us/library/bb398933.aspx" rel="nofollow noopener noreferrer" target="_blank">ASP.Net Health Monitoring</a> service monitors most of our websites and reports user-facing errors. This service notifies the Marketing Technology team othe site performance, assists the team in diagnosing problems, and logs both errors and benign events.</p>
+<h4 id="sysmonrisk" style="margin-left: 40px; margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">Troubleshooting</h4>
+<p style="margin-left: 40px;"> <a href="risk.htm#riskbasic">Common troubleshooting procedures</a> can help diagnose and resolve many website issues, such as site <a href="risk.htm#risknoimage">refresh problems</a> and <a href="risk.htm#riskfrandown">network connectivity errors</a>.</p>
 </div>
 
-<p id="v1related" align="left" style="margin-left:40px; margin-top:100px"><strong>Related Topics:</strong></p>
+<p id="sysmonrelated" align="left" style="margin-left:40px; margin-top:100px"><strong>Related Topics:</strong></p>
 <ul>
-  <p><a href="#lpage">Lorem</a></p>
-  <p><a href="#lpage">Lorem</a></p>
-  <p><a href="#leaddata">Lorem</a><a href="#sitedown"> </a> </p>
+  <p><a href="bestpractices.htm">Best Practices</a></p>
+  <p><a href="Glossaries.htm">Glossaries</a></p>
+  <p><a href="risk.htm">Troubleshooting and Risk</a> </p>
 </ul>
 </div><a href="#siteimageload">
 
