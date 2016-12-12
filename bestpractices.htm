@@ -3,6 +3,7 @@
 <meta http-equiv="X-UA-Compatible">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A guide to effective procedures">
+<meta name="keywords" content="best,practice,system,monitor,aws,rds,cloud,arch,">
 <title>Best Practices</title>
 <!--?xml version="1.0" encoding="utf-8"?-->
 <style type="text/css">
@@ -129,7 +130,12 @@ body {
 <div class="body">
   <p align="left" style="margin-left:40px;"><strong>In this article:</strong></p>
   <ul>
+  <p><a href="bpsdlc">Software Development and VersionOne Best Practices</a></p>
+  
+  <p><a href="bpghub">Version Control and Source Code Management Best Practices</a></p>
+  
   <p><a href="bpsysmon">System Monitoring</a></p>
+    
   <p><a href="#bpawsrds">Best Practices for Amazon RDS </a></p>
     <p><a href="#bpawscloudform">AWS CloudFormation Best Practices</a></p>
     <p><a href="#bpcloudarc">Cloud Architecture</a></p>
@@ -139,10 +145,19 @@ body {
    </ul>
 </div>
 <div style="margin-left:40px" class="body">
-  <h4 id="bpsysmon" style="margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">System Monitoring
-
-</h4>
+  <h4 id="bpsdlc" style="margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">Software Development and VersionOne Best Practices</h4>
+  <p>Rollins Marketing adheres to  industry-standard change management concepts; specifically, Agile software development methods.</p>
+  <p>The software development process is tracked with the VersionOne tool.</p>
+  <p>To ensure that the process runs smoothly, all contributors should adhere to established practices.</p>
+  <p>See <a href="Sprint_Deploy.htm">Sprint Cycle and Deployment </a>and <a href="VersionOne.htm">Using VersionOne</a> for more information.</p>
+  
+  <h4 id="bpghub" style="margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">Version Control and Source Code Management Best Practices</h4>
+  <p>The Marketing Team uses <a href="GitHub.htm">GitHub </a>for version control and source code management. </p>
+  <p>Source code for Rollins products is managed in GitHub repositories and accessed by the Marketing Technology team, <a href="documents/Agency_Partner_DeployProcess.pdf">outside collaborators, agency partners</a>, and Rollins contributors. </p>
+  <p>The GitHub service enables the Marketing Team to store source code, manage code revisions, and monitor the history of committed code.  </p>
+<h4 id="bpsysmon" style="margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">System Monitoring </h4>
   <p>Rollins Marketing uses a variety of tools and procedures to <a href="sys_monitoring.htm">monitor websites and systems</a>.</p>
+      
 <h4 id="bpawsrds" style="margin-top: 100px; border-top: thin solid #bcbeb0; width:30%">Best Practices for Amazon RDS </h4>
   <ul><li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.DiskPerformance" target="new">Amazon RDS Basic Operational Guidelines</a></li>
     <li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.Performance.RAM">DB Instance RAM Recommendations</a></li><li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.Security">Amazon RDS Security Best Practices</a></li><li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.EnhancedMonitoring">Using Enhanced Monitoring to Identify Operating System Issues</a></li><li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.UsingMetrics">Using Metrics to Identify Performance Issues</a></li><li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.MySQLStorage">Best Practices for Working with MySQL Storage Engines</a></li><li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.MariaDB">Best Practices for Working with MariaDB Storage Engines</a></li><li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.PostgreSQL">Best Practices for Working with PostgreSQL</a></li><li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.SQLServer">Best Practices for Working with SQL Server</a></li><li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.DBParameterGroup">Working with DB Parameter Groups</a></li><li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.Presentation">Amazon RDS Best Practices Presentation Video</a></li></ul>
@@ -331,10 +346,14 @@ body {
 
 <p id="bprelated" align="left" style="margin-left:40px; margin-top:100px"><strong>Related Topics:</strong></p>
 <ul>
-  <p><a href="#lpage">About Software Change Management</a></p>
-  <p><a href="#lpage">Applying Agile Methodologies</a></p>
-  <p><a href="#leaddata">Rollins Marketing SDLC</a><a href="#sitedown"> </a> </p>
-</ul>
+  <p><a href="Sprint_Deploy.htm">Sprint Cycle and Deployment</a></a></p>
+  <p><a href="VersionOne.htm">Using Version One</a></p>
+  <p><a href="GitHub.htm">GitHub Repositories</a>    
+  <p><a href="documents/Agency_Partner_DeployProcess.pdf">Deployment Process for Agency Partners</a>    
+  <p><a href="documents/CollabNet_scrumreferencecard.pdf">Scrum Quick Reference Card</a>    
+  <p><a href="https://www.scrumalliance.org/community/articles/2015/august/agile-scrum-best-practices">Agile Scrum Best Practices</a>  
+  <p><a href="https://www.agilealliance.org/agile101/agile-glossary/">Agile Glossary</a>
+  </ul>
 </div><a href="#siteimageload">
 
 <!-- /row -->
