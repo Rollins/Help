@@ -132,13 +132,10 @@ body {
 <div class="body">
   <p align="left" style="margin-left:40px;"><strong>In this article:</strong></p>
   <ul>
-  <p><a href="#cctabout">About Leads Tracking</a>    </p>
-  <p><a href="#cctwflow">Tracking Workflow</a></p>
+  <p><a href="#cctabout">About Leads Tracking</a></p>
   <p><a href="#cctprocess">Tracking Process</a></p>
-    <p><a href="#cctback">Backend Systems and Processes</a></p>
-    <p><a href="#limartifact">Process Artifacts</a></p>
-     <p><a href="#limprocess">System Processes</a></p>
-          <p><a href="#limrisk">Troubleshooting</a></p>
+    <p><a href="#cctback">Backend Systems and Processes</a>          </p>
+    <p><a href="#limrisk">Troubleshooting</a></p>
     <p><a href="#limrelated">Related Topics</a></p>
     
    </ul>
@@ -148,188 +145,192 @@ body {
   <p>
     Reliable tracking that distinguishes between online and offline lead sources is important to marketing initatives. The phone and web leads tracking system enables Marketing to track almost every lead, sale, and start for Orkin.</p>
   <p>Campaign codes are associated with a specific phone numer that identifies the source of the lead. A status is assigned to the lead, indicating whether the lead became a sale or start.</p>
-  <p>The tracking, analysis, and optimization of leads is critical to Digital Marketing decisions. </p>
-  <p>&nbsp;</p>
-&nbsp;
-<h4 id="cctwflow" style="margin-top:100px; border-top: thin solid #bcbeb0; width:50%"> Tracking Workflow</h4>
-<p> Marketing Technology uses a process workflow to combine data from several sources. This workflow gathers records such as caller data,  click data, <a href="popcallconvert.html" target="popup" onclick="window.open('popcallconvert.html','popup','width=1400,height=900,scrollbars=no,resizable=no'); return false;"> </a>campaign code, and revenue data, then matches and combines this data for analysis in the Marin platform.</p>
+  <p>The tracking, analysis, and optimization of leads is critical to <a href="images/Screenshot_20161201-151739.png" target="popup">Digital Marketing decisions</a>.  </p>
+  <p> Marketing Technology uses a process workflow to combine data from several sources. This workflow gathers records such as caller data,  session data, <a href="popcallconvert.html" target="popup" onclick="window.open('popcallconvert.html','popup','width=1400,height=900,scrollbars=no,resizable=no'); return false;"> </a>campaign code, and revenue data, then matches and combines this data for analysis in the Marin platform.</p>
 <p>The Marketing team uses the Marin platform to analyze this data for lead optimization.</p>
 <p>&nbsp;</p>
 
 
 <h4 id="cctprocess" style="margin-top:100px; border-top: thin solid #bcbeb0; width:50%">
     Tracking Process</h4>
-<p>The following process describes the conversion of data. <a href="popcallconvert.html" target="popup" onclick="window.open('popcallconvert.html','popup','width=1100,height=350,scrollbars=no,resizable=no'); return false;"> Click here to see a diagram of this process. </a></p>
+<p>The following process describes the conversion of data. <a href="popcallconvert.html" target="popup" onclick="window.open('popcallconvert.html','popup','width=1100,height=400,scrollbars=no,resizable=no'); return false;"> Click here to see a diagram of this process. </a></p>
 <p>&nbsp;</p>
-<p>
-	<strong>Import AvidTrack calls into RI-MDB</strong> - The daily process begins by importing calls into the <strong>Rollins Integration Marketing Database</strong> (<strong>RI-MDB</strong>). To determine which calls are associated with AvidTrak, each number in the AvidTrak replacement bank is associated to a unique Marketing Campaign and VDN. Each Marketing Campaign is associated with a Marketing Program. Marketing Programs have a field indicating its inclusion in AvidTrak. &nbsp;</p>
-<p>
-	<strong>Export calls to AvidTrak</strong> - After calls are imported into the Rollins Integration MDB, they are then exported to AvidTrak and marked as exported.</p>
-<p>
-	<strong>Match exported calls in AT session</strong> - AvidTrak matches the start and end times of the recorded sessions to the call connect and terminate times of the exported&nbsp;calls. &nbsp;</p>
-<p>
-	<strong>Match click data in RI-MDB</strong> - Click data is downloaded from AvidTrak paid client APIs and matched to calls stored in the <strong>Rollins Integration MDB</strong>. It is important to match only paid clicks, because only these clicks need to be exported to Marin. These calls  now have their associated click data stored in the <strong>RI-MDB</strong>.</p>
-<p>
-	<strong>ODS generate conversion file</strong> - Using the VDNs associated with leads, ODS matches lead/sold/start data to call VDNs in the <strong>Rollins Integration MDB</strong> and generates a conversion file with revenue data. Matching is done on calls for 10 days previous to ensure enough time is given to close the lead/sold/start sales loop.</p>
-</li>
-</ol>
-<p>
-<h4 id="cctback" style="margin-top:100px; border-top: thin solid #bcbeb0; width:50%">Backend Systems and Processes</h4>
-<p>See the following topics for technical information on the backend system elements that drive the tracking process:</p>
-  <p><a href="#limartifact">Process Artifacts</a></p>
-  <p><a href="#limprocess">System Processes</a></p>
+<ul>
+  <li><strong>Call data</strong> - such as Calling Party, VDN, and call start and end time - is stored in  CMS.</li><br>
+  <li><strong>Case data</strong> is collected in Contact360 when customer service representatives log information from customer inquiries. The Case ID is necessary for this process.</li><br>
+  <li>The AvidTrak call tracking platform stores <strong>session data</strong>, such as keyword information, creative ID, and match type.</li><br>
+  <li>Each day, the call data and case data is sent to to AvidTrak, and the session data is appended to the call and case data.</li><br>
+  <li>This combined data is moved to the Rollins Integration Marketing Database. The AvidTrak API is used to match calls with associated session data.</li><br>
+
+    <li>The Call, Case, and Session data is moved to the Marin platform. Form-fill leads data, stored in the Marketing Database, is also moved to Marin, as well as <strong>revenue data</strong> from other ODS sources.</li>
 </ul>
-<p>&nbsp;</p>
-<p id="limartifact" style="font-weight: bold; ">Process Artifacts</p>
-	<h5>&nbsp;</h5>
-	<p> The CallsImport file is a TXT file sourced from CMS and Contact360. It is generated daily and imported to the Rollins Integration Marketing Database. The file contains the following fields:</p>
-	<table class="Basic" style="font-size: 12; text-align: left;">
-      <tbody>
-        <tr>
-          <th width="172"> Column Name</th>
-          <th width="451"> Description</th>
-        </tr>
-        <tr>
-          <td> CALLING_PTY</td>
-          <td> The ten digit caller ID phone number of the calling party.</td>
-        </tr>
-        <tr>
-          <td> FIRSTVDN</td>
-          <td> The first VDN the call was routed through. This ultimately indicates the number that was dialed.</td>
-        </tr>
-        <tr>
-          <td> CALLID</td>
-          <td> The call identifier assigned by Contact360. This is also used as the primary key in the&nbsp;<em>Calls</em> table</td>
-        </tr>
-        <tr>
-          <td> SEGSTART</td>
-          <td> The date and time the call was placed.</td>
-        </tr>
-        <tr>
-          <td> SEGSTOP</td>
-          <td> The date and time the call ended.</td>
-        </tr>
-        <tr>
-          <td> CASEID</td>
-          <td> The Contact360 Case ID tied to the lead.</td>
-        </tr>
-      </tbody>
-    </table>
-    <br>
-    <h5>&nbsp;</h5>
-    <p>The CallsExport file is a CDR file sourced from the Rollins Integration Marketing Database. It is imported to AvidTrack. This file contains the following fields:</p>
-    <table class="Basic" style="font-size: 12; text-align: left">
-      <tbody>
-        <tr>
-          <th width="301"> Column Name</th>
-          <th width="476"> Description</th>
-        </tr>
-        <tr>
-          <td> CallOriginatingNumber</td>
-          <td> The ten digit caller ID phone number of the calling party.</td>
-        </tr>
-        <tr>
-          <td> CallDialedNumber</td>
-          <td> The ten digit number of the dialed line.</td>
-        </tr>
-        <tr>
-          <td> CallConnectUtc</td>
-          <td> The date and time (in UTC) the call was connected.</td>
-        </tr>
-        <tr>
-          <td> CallTerminateUtc</td>
-          <td> The date and time (in UTC) the call was terminated.</td>
-        </tr>
-      </tbody>
-    </table>
-    <h5>&nbsp;</h5>
-    <p> The ODSLeadUploadToMarin file is a TXT file sourced from ODS and the Rollins Integration Marketing Database and imported to Marin. The web and phone conversion files contain the following fields:    </p>
-    <table class="Basic"  style="font-size: 12; text-align: left;">
-      <tbody style="cellspacing:50px">
-        <tr>
-          <th width="296"> Column Name</th>
-          <th width="1002"> Description</th>
-        </tr>
-        <tr>
-          <td> Date</td>
-          <td> The date by which all the other fields are aggregated (grouped by).</td>
-        </tr>
-        <tr>
-          <td> Keyword ID</td>
-          <td> The Marin keyword ID.</td>
-        </tr>
-        <tr>
-          <td> Creative ID</td>
-          <td> A value generated by the ad platform that uniquely identifies an ad unit.</td>
-        </tr>
-        <tr>
-          <td> Keyword</td>
-          <td> The bid-upon keyword.</td>
-        </tr>
-        <tr>
-          <td> Match Type</td>
-          <td> The match type of the bid that was triggered by the search query.</td>
-        </tr>
-        
-        <tr>
-          <td> websold Conv</td>
-          <td> The number of sales made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from web leads.</td>
-        </tr>
-        <tr>
-          <td> webstart Conv</td>
-          <td> The number of starts made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from web leads.</td>
-        </tr>
-        <tr>
-          <td> webstart Rev</td>
-          <td> The revenue, as indicated by the contract value, generated on the specified date for the specified keyword ID, creative ID, keyword, and match type that was generated from web leads.</td>
-        </tr>
-        <tr>
-          <td> phonelead Conv</td>
-          <td> The number of cases associated with the call. Multiple leads for the same call. Please see&nbsp;Linking a Call to a Case ID =&gt; Special and Unusual Cases below.</td>
-        </tr>
-        <tr>
-          <td> phonesold Conv</td>
-          <td> The number of sales made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from phone leads.</td>
-        </tr>
-        <tr>
-          <td> phonestart Conv</td>
-          <td> The number of starts made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from phone leads.</td>
-        </tr>
-        <tr>
-          <td> phonestart Rev</td>
-          <td> The revenue, as indicated by the contract value, generated on the specified date for the specified keyword ID, creative ID, keyword, and match type that was generated from phone leads.</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-weight: bold; text-emphasis-color: #cc092f">&nbsp;</p>
-    <p style="font-weight: bold; text-emphasis-color: #cc092f">&nbsp;</p>
-    <p id="limprocess"><strong>System Processes</strong></p>
+<h4 id="cctback" style="margin-top:100px; border-top: thin solid #bcbeb0; width:50%">Backend Systems and Processes</h4>
+<p>This section describes the backend processes that deliver robust data to the Marin platform.</p>
 <p>
-	These processes are executed daily by ODS and Marketing Technology. They generate and use the artifacts to implement the call matching process.</p>
+  These processes are executed daily by ODS and the Marketing Technology team. They generate and use the artifacts to implement the call matching process.</p>
+<p>&nbsp;</p>
 <h5 style="font-weight: bolder">
 	ODS: Generate Calls File Export</h5>
 <p>
-	This process generates the&nbsp;CallsImport file described above.</p>
+	This process generates the&nbsp;<strong>AvidTrak TO </strong>file.</p>
+    <p>The name of this file is similar to <span style="font-family:'Courier New'; ">AvidTrak_20150612040026.txt</span>; it contains the following fields from Contact360 and CMS:</p>
+<p>&nbsp;</p>
+<table class="Basic" style="font-size: 12; text-align: left;">
+  <tbody>
+    <tr>
+      <th width="227"> Column Name</th>
+      <th width="605"> Description</th>
+    </tr>
+    <tr>
+      <td> CALLING_PTY</td>
+      <td> The ten digit caller ID phone number of the calling party.</td>
+    </tr>
+    <tr>
+      <td> FIRSTVDN</td>
+      <td> The first VDN the call was routed through. This ultimately indicates the number that was dialed.</td>
+    </tr>
+    <tr>
+      <td> CALLID</td>
+      <td> The call identifier assigned by Contact360. This is also used as the primary key in the&nbsp;<em>Calls</em> table</td>
+    </tr>
+    <tr>
+      <td> SEGSTART</td>
+      <td> The date and time the call was placed.</td>
+    </tr>
+    <tr>
+      <td> SEGSTOP</td>
+      <td> The date and time the call ended.</td>
+    </tr>
+    <tr>
+      <td> CASEID</td>
+      <td> The Contact360 Case ID tied to the lead.</td>
+    </tr>
+  </tbody>
+</table>
+<p>&nbsp;</p>
+<p><strong>This process begins at 4:00 AM daily and takes less than one minute.</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <h5 style="font-weight: bolder">
-	CallsImport</h5>
+  CallsImport</h5>
 <p>
-	After the CallsImport file is generated, the CallsImport process retrieves it from the network share and imports the calls in the Rollins Integration MDS <em>Calls </em>and <em>CallCases</em>&nbsp;tables. The CallCases table is a master detail table for calls associated with multiple  cases. During the import process, the call is matched to a marketing campaign by the VDN associated with the dialed phone number. CallsImport also processes any available Calls File Export since the last successful import.</p>
+	After the <strong>AvidTrack TO</strong> file is generated, the CallsImport process retrieves it from the network share G drive and imports the calls in the Rollins Integration MDS <em>Calls </em>and <em>CallCases</em>&nbsp;tables. The CallCases table is a master detail table for calls associated with multiple  cases. During the import process, the call is matched to a marketing campaign by the VDN associated with the dialed phone number. CallsImport also processes any available Calls File Export since the last successful import.</p>
+<p><strong>This process begins at 4:05 AM daily and takes one or two minutes, depending on the call volume of the previous day.</strong></p>
+<p>&nbsp;</p>
 <h5 style="font-weight: bolder">
 	CallsCdrExport</h5>
 <p>
-	After the calls are available in the <em>Calls</em> and&nbsp;<em>CallCases</em> tables, the&nbsp;CallsCdrExport process generates the&nbsp;Call Detail Record Export. This file is uploaded to the AvidTrak FTP directory for import into the AvidTrak portal.</p>
+	After the calls are available in the <em>Calls</em> and&nbsp;<em>CallCases</em> tables, the&nbsp;CallsCdrExport process generates the&nbsp;Call Detail Record report. </p>
+    <p>The name of this file is similar to <span style="font-family:'Courier New'; ">call-detail-report2016-11-25-09-10-01z.cdr</span>; it contains the following fields:</p>
+<p>&nbsp;</p>
+<table class="Basic" style="font-size: 12; text-align: left">
+  <tbody>
+    <tr>
+      <th width="301"> Column Name</th>
+      <th width="476"> Description</th>
+    </tr>
+    <tr>
+      <td> CallOriginatingNumber</td>
+      <td> The ten digit caller ID phone number of the calling party.</td>
+    </tr>
+    <tr>
+      <td> CallDialedNumber</td>
+      <td> The ten digit number of the dialed line.</td>
+    </tr>
+    <tr>
+      <td> CallConnectUtc</td>
+      <td> The date and time (in UTC) the call was connected.</td>
+    </tr>
+    <tr>
+      <td> CallTerminateUtc</td>
+      <td> The date and time (in UTC) the call was terminated.</td>
+    </tr>
+  </tbody>
+</table>
+<p>&nbsp;</p>
+<p>This file is uploaded to the AvidTrak FTP directory for import into the AvidTrak portal.</p>
+<p><strong>This process begins at 4:10 AM daily and takes five to ten minutes, depending on the number of imported calls since the last export.</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <h5 style="font-weight: bolder">
 	CallsAppend</h5>
 <p>
 	After AvidTrak completes the import of the call details, the CallsAppend process uses the AvidTrak API to download all  calls matched to an AvidTrak call. The CallBidKeywordText, KeywordId, CreativeId, MatchType values, if available, are appended to the existing call data in the&nbsp;<em>Calls</em> table. The CallClickDataAppended field is also set, indicating the call has been appended and additional processing will not append data to the call.</p>
+<p><strong>This process begins at 11:20 am daily. While the append process typically takes less than 15 minutes, the AvidTrak window for this processing task is seven hours. </strong></p>
+<p><strong><font color="red"> <strong>IMPORTANT: </strong></font>Stakeholders should plan for a seven-hour turnaround time for this process to complete.</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <h5 style="font-weight: bolder">
 	ODS: Generate Conversion Files</h5>
 <p>
 	This process retrieves conversion data for both web and phone leads, matches it to keyword data stored in the Rollins Integration MDB <em>Calls </em>table, and exports the Marin Conversion Files.</p>
+<p>The name of this file is similar to <span style="font-family:'Courier New'; ">combined-conv-phone_rollins_orkin_km271vm0l0_20161123.txt</span>. It is sourced from ODS and the Rollins Integration Marketing Database, and contains the following fields:</p>
+<p>&nbsp;</p>
+<table class="Basic"  style="font-size: 12; text-align: left;">
+  <tbody style="cellspacing:50px">
+    <tr>
+      <th width="296"> Column Name</th>
+      <th width="1002"> Description</th>
+    </tr>
+    <tr>
+      <td> Date</td>
+      <td> The date by which all the other fields are aggregated (grouped by).</td>
+    </tr>
+    <tr>
+      <td> Keyword ID</td>
+      <td> The Marin keyword ID.</td>
+    </tr>
+    <tr>
+      <td> Creative ID</td>
+      <td> A value generated by the ad platform that uniquely identifies an ad unit.</td>
+    </tr>
+    <tr>
+      <td> Keyword</td>
+      <td> The bid-upon keyword.</td>
+    </tr>
+    <tr>
+      <td> Match Type</td>
+      <td> The match type of the bid that was triggered by the search query.</td>
+    </tr>
+    <tr>
+      <td> websold Conv</td>
+      <td> The number of sales made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from web leads.</td>
+    </tr>
+    <tr>
+      <td> webstart Conv</td>
+      <td> The number of starts made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from web leads.</td>
+    </tr>
+    <tr>
+      <td> webstart Rev</td>
+      <td> The revenue, as indicated by the contract value, generated on the specified date for the specified keyword ID, creative ID, keyword, and match type that was generated from web leads.</td>
+    </tr>
+    <tr>
+      <td> phonelead Conv</td>
+      <td> The number of cases associated with the call. Multiple leads for the same call. </td>
+    </tr>
+    <tr>
+      <td> phonesold Conv</td>
+      <td> The number of sales made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from phone leads.</td>
+    </tr>
+    <tr>
+      <td> phonestart Conv</td>
+      <td> The number of starts made on the specified date for the specified keyword ID, creative ID, keyword, and match type that were generated from phone leads.</td>
+    </tr>
+    <tr>
+      <td> phonestart Rev</td>
+      <td> The revenue, as indicated by the contract value, generated on the specified date for the specified keyword ID, creative ID, keyword, and match type that was generated from phone leads.</td>
+    </tr>
+  </tbody>
+</table>
+<p>&nbsp;</p>
+<p><strong>This process begins daily at 12:00 AM and takes less than a minute.</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <h5 style="font-weight: bolder">
 	OdsLeadDataFtpUploadToMarin</h5>
 <p>
-	After the combined web and phone conversion file is generated, the OdsLeadDataFtpUploadToMarin process transfers the file to the Marin FTP <span style="font-family:'Courier New'; "> /km271vm0l0/combined-conv-phone</span>&nbsp;directory. Marin then uploads the data and bid optimizations can begin.</p>
+	After the combined web and phone conversion file is generated, the OdsLeadDataFtpUploadToMarin process transfers the file to the Marin FTP directory. Marin then uploads the data and bid optimizations can begin.</p>
+<p><strong>This process begins daily at 12:10 AM and takes less than a minute.</strong></p>
 
 <h4 id="limrisk" style="margin-top: 100px; border-top: thin solid #bcbeb0; width:50%">Troubleshooting</h4>
 <p> If the tracking system fails to execute properly, use the following information to troubleshoot and correct any problems:</p>
